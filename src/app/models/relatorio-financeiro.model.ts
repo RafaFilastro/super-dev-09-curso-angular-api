@@ -1,4 +1,4 @@
-export interface TarefaModel {
+export interface RelatorioFinanceiroModel {
     id: string;
     titulo: string;
     tipo: string;
