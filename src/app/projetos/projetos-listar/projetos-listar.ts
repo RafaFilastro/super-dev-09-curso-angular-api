@@ -1,6 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { ProjetoService } from '../../services/projeto.service';
+import { ProjetosModel } from '../../models/projetos.model';
+import { inject } from '@angular/core/primitives/di';
 
 @Component({
   selector: 'app-projetos-listar',
@@ -11,27 +13,38 @@ import { ProjetoService } from '../../services/projeto.service';
 export class ProjetosListar {
     private readonly projetoService = inject(ProjetoService);
 
-    tarefas = signal<ProjetosModel[]>([]);
+    projetos = signal<ProjetosModel[]>([]);
 
-    ngOninit() {
+    ngOnInit() {
         this.carregarProjetos();
     }
 
     carregarProjetos(): void {
         this.projetoService.listar().subscribe({
             next: projetos => {
-                const projetosOrdenados = projetos.sort((x, y) => x.descricao.localeCompare(y.descricao));
+                const projetosOrdenados = projetos.sort((x, y) => x.nome.localeCompare(y.nome));
+                this.projetos.set(projetosOrdenados);
             },
             error: erro => {
-                console.error("Erro ao carregar as Tarefas:", erro);
-                alert("Não foi possivel carregar as tarefas")
+                console.error("Erro ao carregar os Projetos:", erro);
+                alert("Não foi possivel carregar os projetos");
             }
         })
     }
 
     apagar(id: string): void {
-        this.projetoService.update(projetos => projetos.filter(x => x.id !== id))
-        const projetosString = JSON.stringify(this.projetos());
-        localStorage.setItem("projetos", projetosString);
+        this.projetoService.apagar(id).subscribe({
+            next: () => {
+                this.projetos.update(projetos => projetos.filter(x => x.id !== id));
+                const projetosString = JSON.stringify(this.projetos());
+                localStorage.setItem("projetos", projetosString);
+            },
+            error: erro => {
+                console.error("Erro ao apagar o Projeto:", erro);
+                alert("Não foi possivel apagar o projeto");
+            }
+        });
     }
 }
+
+
