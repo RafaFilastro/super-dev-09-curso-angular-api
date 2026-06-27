@@ -8,31 +8,31 @@ import { RelatorioFinanceiroModel } from '../models/relatorio-financeiro.model';
   providedIn: 'root',
 })
 export class RelatorioFinanceiroService {
-    private readonly http = inject(HttpClient);
-    private readonly baseUrl = `${environment.apiUrl}/api/v1/trabalho/relatorios-financeiros`;
+  private readonly http = inject(HttpClient);
+  private readonly baseUrl = `${environment.apiUrl}/api/v1/trabalho/relatorios-financeiros`;
 
-    listar(): Observable<RelatorioFinanceiroModel[]> {
-        const url = this.baseUrl;
-        return this.http.get<RelatorioFinanceiroModel[]>(url);
-    }
+  listar(): Observable<RelatorioFinanceiroModel[]> {
+    const url = this.baseUrl;
+    return this.http.get<RelatorioFinanceiroModel[]>(url);
+  }
 
-    cadastrar(relatorioFinanceiro: RelatorioFinanceiroModel): Observable<RelatorioFinanceiroModel> {
-  const url = this.baseUrl;
-  return this.http.post<RelatorioFinanceiroModel>(url, relatorioFinanceiro);
-}
+  cadastrar(relatorioFinanceiro: RelatorioFinanceiroModel): Observable<RelatorioFinanceiroModel> {
+    const url = this.baseUrl;
+    return this.http.post<RelatorioFinanceiroModel>(url, relatorioFinanceiro);
+  }
 
-    apagar(id: number): Observable<void> {
-        const url = `${this.baseUrl}/${id}`;
-        return this.http.delete<void>(url);
-    }
+  apagar(id: number): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 
-    obterPorId(id: number): Observable<RelatorioFinanceiroModel> {
-        const url = `${this.baseUrl}/${id}`;
-        return this.http.get<RelatorioFinanceiroModel>(url);
-    }
+  obterPorId(id: number): Observable<RelatorioFinanceiroModel> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<RelatorioFinanceiroModel>(url);
+  }
 
-    editar(id: number, relatorioFinanceiro: RelatorioFinanceiroModel): Observable<void> {
-        const url = `${this.baseUrl}/${id}`;
-        return this.http.put<void>(url, relatorioFinanceiro);
-    }
+  editar(id: number, relatorioFinanceiro: RelatorioFinanceiroModel): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.put<void>(url, relatorioFinanceiro);
+  }
 }

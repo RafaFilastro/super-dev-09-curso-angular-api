@@ -1,1 +1,27 @@
-<p>manutencao-cadastrar works!</p>
+<h1>Cadastro de Manutenções</h1>
+
+<label for="equipamento">Nome do equipamento</label>
+<input id="equipamento" type="text" [(ngModel)]="manutencao().equipamento">
+
+<label for="tipo">Defina o Tipo</label>
+<input id="tipo" type="text" [(ngModel)]="manutencao().tipo">
+
+<label for="custo">Custo da Manutenção</label>
+<input id="custo" type="number" [(ngModel)]="manutencao().custo">
+
+<label for="tecnico">Tecnico Responsável</label>
+<input id="tecnico" type="text" [(ngModel)]="manutencao().tecnico">
+
+<label for="dataManutencao">Data da Manutenção</label>
+<input id="dataManutencao" type="date" [(ngModel)]="manutencao().dataManutencao">
+
+<label for="status">Status</label>
+<select id="status" [(ngModel)]="manutencao().status">
+    <option value="">Selecione um Status</option>
+    <option value="PENDENTE">Pendente</option>
+    <option value="EM_ANDAMENTO">Em andamento</option>
+    <option value="FINALIZADO">Finalizado</option>
+    <option value="CANCELADO">Cancelado</option>
+</select>
+
+<button (click)="salvar()">Salvar</button>
