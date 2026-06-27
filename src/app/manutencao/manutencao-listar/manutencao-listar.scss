@@ -1,0 +1,97 @@
+:host {
+  min-height: 100vh;
+  display: block;
+  padding: 48px;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.cadastrar {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 13px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  transition: 0.25s;
+}
+
+.cadastrar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.3);
+}
+
+.quantidade {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+table {
+  width: 100%;
+  margin-top: 28px;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+thead {
+  background: #0f172a;
+  color: white;
+}
+
+th,
+td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr {
+  transition: 0.2s;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+  transform: scale(1.005);
+}
+
+.editar,
+.apagar {
+  padding: 9px 13px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.editar {
+  background: #dbeafe;
+  color: #1d4ed8;
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.apagar {
+  border: 0;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.editar:hover,
+.apagar:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}

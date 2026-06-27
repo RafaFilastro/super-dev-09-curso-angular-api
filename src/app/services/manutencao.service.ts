@@ -25,4 +25,14 @@ export class ManutencaoService {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<void>(url);
   }
+
+  obterPorId(id: number): Observable<ManutencoesModel> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<ManutencoesModel>(url);
+  }
+
+  editar(id: number, manutencao: ManutencoesModel): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.put<void>(url, manutencao);
+  }
 }

@@ -1,8 +1,8 @@
 export interface ManutencoesModel{
-    id: 0,
+    id: number,
     equipamento: string,
     tipo: string,
-    custo: 0,
+    custo: number,
     tecnico: string,
     dataManutencao: string,
     status: string
