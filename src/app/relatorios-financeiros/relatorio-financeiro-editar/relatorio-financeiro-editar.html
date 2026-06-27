@@ -1,1 +1,18 @@
-<p>relatorio-financeiro-editar works!</p>
+<h1>Editar Relatório Financeiro</h1>
+
+<label for="titulo">Título</label>
+<input id="titulo" type="text" [(ngModel)]="relatorioFinanceiro().titulo">
+
+<label for="tipo">Tipo</label>
+<input id="tipo" type="text" [(ngModel)]="relatorioFinanceiro().tipo">
+
+<label for="valorTotal">Valor Total</label>
+<input id="valorTotal" type="number" [(ngModel)]="relatorioFinanceiro().valorTotal">
+
+<label for="dataEmissao">Data de Emissão</label>
+<input id="dataEmissao" type="date" [(ngModel)]="relatorioFinanceiro().dataEmissao">
+
+<label for="responsavel">Responsável</label>
+<input id="responsavel" type="text" [(ngModel)]="relatorioFinanceiro().responsavel">
+
+<button (click)="salvar()">Salvar</button>

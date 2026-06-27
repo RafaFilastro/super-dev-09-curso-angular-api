@@ -15,7 +15,7 @@ export class RelatorioFinanceiroCadastrar {
     private readonly router = inject(Router);
 
     relatorioFinanceiro = signal<RelatorioFinanceiroModel>({
-        id: crypto.randomUUID(),
+        id: 0,
         titulo: "",
         tipo: "",
         valorTotal: 0,
@@ -24,10 +24,10 @@ export class RelatorioFinanceiroCadastrar {
     })
 
     salvar(): void {
-        this.relatorioFinanceiroService.cadastrar().subscribe({
+        this.relatorioFinanceiroService.cadastrar(this.relatorioFinanceiro()).subscribe({
             next: () => {
                 alert("Relatório Financeiro cadastrado com sucesso");
-                this.router.navigate(["/relatorios-financeiros"]);
+                this.router.navigate(["/relatorio-financeiro"]);
             },
             error: erro => {
                 console.error("Erro ao cadastrar relatório financeiro:", erro);

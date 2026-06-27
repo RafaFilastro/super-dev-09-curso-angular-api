@@ -8,30 +8,30 @@ import { RelatorioFinanceiroModel } from '../models/relatorio-financeiro.model';
   providedIn: 'root',
 })
 export class RelatorioFinanceiroService {
-    private readonly baseUrl = `${environment.apiUrl}/api/v1/relatorio-financeiro`;
     private readonly http = inject(HttpClient);
+    private readonly baseUrl = `${environment.apiUrl}/api/v1/trabalho/relatorios-financeiros`;
 
     listar(): Observable<RelatorioFinanceiroModel[]> {
         const url = this.baseUrl;
         return this.http.get<RelatorioFinanceiroModel[]>(url);
     }
 
-    cadastrar(): Observable<RelatorioFinanceiroModel> {
-        const url = this.baseUrl;
-        return this.http.post<RelatorioFinanceiroModel>(url, {});
-    }
+    cadastrar(relatorioFinanceiro: RelatorioFinanceiroModel): Observable<RelatorioFinanceiroModel> {
+  const url = this.baseUrl;
+  return this.http.post<RelatorioFinanceiroModel>(url, relatorioFinanceiro);
+}
 
-    apagar(id: string): Observable<void> {
+    apagar(id: number): Observable<void> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.delete<void>(url);
     }
 
-    obterPorId(id: string): Observable<RelatorioFinanceiroModel> {
+    obterPorId(id: number): Observable<RelatorioFinanceiroModel> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.get<RelatorioFinanceiroModel>(url);
     }
 
-    editar(id: string, relatorioFinanceiro: RelatorioFinanceiroModel): Observable<void> {
+    editar(id: number, relatorioFinanceiro: RelatorioFinanceiroModel): Observable<void> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.put<void>(url, relatorioFinanceiro);
     }
