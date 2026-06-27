@@ -8,16 +8,21 @@ import { ManutencoesModel } from '../models/manutencoes.model';
   providedIn: 'root',
 })
 export class ManutencaoService {
-    private readonly http = inject(HttpClient);
-    private readonly baseUrl = `${environment.apiUrl}/api/v1/trabalho/manutencoes`;
+  private readonly http = inject(HttpClient);
+  private readonly baseUrl = `${environment.apiUrl}/api/v1/trabalho/manutencoes`;
 
-    listar(): Observable<ManutencoesModel[]> {
-        const url = this.baseUrl;
-        return this.http.get<ManutencoesModel[]>(url);
-    }
+  listar(): Observable<ManutencoesModel[]> {
+    const url = this.baseUrl;
+    return this.http.get<ManutencoesModel[]>(url);
+  }
 
-    cadastrar(manutencao: ManutencoesModel): Observable<ManutencoesModel> {
-        const url = this.baseUrl;
-        return this.http.post<ManutencoesModel>(url, manutencao);
-    }
+  cadastrar(manutencao: ManutencoesModel): Observable<ManutencoesModel> {
+    const url = this.baseUrl;
+    return this.http.post<ManutencoesModel>(url, manutencao);
+  }
+
+  apagar(id: number): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

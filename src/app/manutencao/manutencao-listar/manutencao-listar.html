@@ -1,1 +1,33 @@
-<p>manutencao-listar works!</p>
+<h1>Lista de Manutenções</h1>
+
+<a routerLink="/manutencao/cadastrar" class="cadastrar">Cadastrar Manutenção</a>
+
+<span>Quantidade de Manutenções: <span class="quantidade">{{ manutencoes().length }}</span></span>
+
+<table>
+    <thead>
+        <th>Nome do Equipamento</th>
+        <th>Tipo</th>
+        <th>Valor</th>
+        <th>Tecnico Responsável</th>
+        <th>Data</th>
+        <th>Status</th>
+        <th></th>
+    </thead>
+    <tbody>
+        @for(manutencao of manutencoes(); track manutencao.id){
+            <tr>
+                <td>{{manutencao.equipamento}}</td>
+                <td>{{manutencao.tipo}}</td>
+                <td>{{manutencao.custo}}</td>
+                <td>{{manutencao.tecnico}}</td>
+                <td>{{manutencao.dataManutencao}}</td>
+                <td>{{manutencao.status}}</td>
+                <td>
+                    <a class="editar" routerLink="/manutencao/editar/{{manutencao.id}}">Editar</a>
+                    <button class="apagar" (click)="apagar(manutencao.id)">Apagar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
