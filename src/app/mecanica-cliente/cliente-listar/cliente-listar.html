@@ -1,0 +1,27 @@
+<h1>Clientes cadastrados</h1>
+
+<a routerLink="/mecanica-cliente/cadastrar" class="cadastrar">Cadastrar novo Cliente</a>
+
+<span>Quantidade de clientes cadastrados: <span class="quantidade">{{ clientesCadastrados().length }}</span></span>
+
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th></th>
+    </thead>
+    <tbody>
+        @for(clienteCadastrado of clientesCadastrados(); track clienteCadastrado.id){
+            <tr>
+                <td>{{ clienteCadastrado.id }}</td>
+                <td>{{ clienteCadastrado.nome }}</td>
+                <td>{{ clienteCadastrado.telefone }}</td>
+                <td>
+                    <a class="editar" routerLink="/mecanica-cliente/editar/{{clienteCadastrado.id}}">Editar</a>
+                    <button class="apagar" (click)="apagar(clienteCadastrado.id)">Apagar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

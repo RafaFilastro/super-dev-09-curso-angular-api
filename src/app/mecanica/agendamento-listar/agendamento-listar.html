@@ -1,0 +1,34 @@
+<h1>Agendamentos</h1>
+
+<a routerLink="/mecanica/cadastrar" class="agendamentos">Agendar novo Cliente</a>
+
+<span>Quantidade de Agendamentos: <span class="quantidade">{{ agendamentos().length }}</span></span>
+
+<table>
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>ID do Cliente</th>
+            <th>Nome do Cliente</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(agendamento of agendamentos(); track agendamento.id) {
+            <tr>
+                <td>{{ agendamento.dataAgendamento }}</td>
+                <td>{{ agendamento.descricao }}</td>
+                <td>{{ agendamento.clienteId }}</td>
+                <td>{{ agendamento.cliente?.nome }}</td>
+                <td>{{ agendamento.cliente?.telefone }}</td>
+                <td>
+                    <a class="editar" routerLink="/mecanica/editar/{{agendamento.id}}">Editar</a>
+                    <button class="apagar" (click)="apagar(agendamento.id)">Apagar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

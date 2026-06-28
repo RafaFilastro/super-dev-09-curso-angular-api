@@ -57,7 +57,7 @@ export class ManutencaoEditar {
         })
     }
     salvar(): void {
-        this.manutencaoService.editar(this.manutencao().id, this.manutencao()).subscribe({
+        this.manutencaoService.cadastrar(this.manutencao()).subscribe({
             next: () => {
                 alert("Manutenção editada com sucesso");
                 this.router.navigate(["/manutencao"]);

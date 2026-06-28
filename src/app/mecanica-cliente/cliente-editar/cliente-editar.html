@@ -1,0 +1,9 @@
+<h1>Editar cliente mecanica</h1>
+
+<label for="cliente">Nome cliente</label>
+<input id="cliente" type="text" [(ngModel)]="mecanicaCliente().nome">
+
+<label for="telefone">Telefone</label>
+<input id="telefone" type="number" [(ngModel)]="mecanicaCliente().telefone">
+
+<button (click)="salvar()">Cadastrar</button>

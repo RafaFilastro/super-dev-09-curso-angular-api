@@ -1,0 +1,12 @@
+<h1>Agendamento de Cliente</h1>
+
+<label for="dataAgendamento">Data do Agendamento</label>
+<input id="dataAgendamento" type="datetime-local" [(ngModel)]="agendamento().dataAgendamento">
+
+<label for="descricao">Descrição</label>
+<input id="descricao" type="text" [(ngModel)]="agendamento().descricao">
+
+<label for="clienteId">ID do cliente</label>
+<input id="clienteId" type="number" [(ngModel)]="agendamento().clienteId">
+
+<button (click)="salvar()">Salvar</button>

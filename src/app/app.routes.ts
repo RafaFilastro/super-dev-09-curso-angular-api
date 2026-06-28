@@ -11,6 +11,12 @@ import { RelatorioFinanceiroEditar } from './relatorios-financeiros/relatorio-fi
 import { ManutencaoCadastrar } from './manutencao/manutencao-cadastrar/manutencao-cadastrar';
 import { ManutencaoListar } from './manutencao/manutencao-listar/manutencao-listar';
 import { ManutencaoEditar } from './manutencao/manutencao-editar/manutencao-editar';
+import { AgendamentoCadastrar } from './mecanica/agendamento-cadastrar/agendamento-cadastrar';
+import { AgendamentoListar } from './mecanica/agendamento-listar/agendamento-listar';
+import { AgendamentoEditar } from './mecanica/agendamento-editar/agendamento-editar';
+import { ClienteCadastrar } from './mecanica-cliente/cliente-cadastrar/cliente-cadastrar';
+import { ClienteListar } from './mecanica-cliente/cliente-listar/cliente-listar';
+import { ClienteEditar } from './mecanica-cliente/cliente-editar/cliente-editar';
 
 export const routes: Routes = [
 
@@ -25,5 +31,11 @@ export const routes: Routes = [
     { path: "relatorio-financeiro/editar/:id", loadComponent: () => RelatorioFinanceiroEditar},
     { path: "manutencao/cadastrar", loadComponent: () => ManutencaoCadastrar},
     { path: "manutencao", loadComponent: () => ManutencaoListar},
-    { path: "manutencao/editar/:id", loadComponent: () => ManutencaoEditar}
+    { path: "manutencao/editar/:id", loadComponent: () => ManutencaoEditar},
+    { path: "mecanica/cadastrar", loadComponent: () => AgendamentoCadastrar},
+    { path: "mecanica", loadComponent: () => AgendamentoListar},
+    { path: "mecanica/editar/:id", loadComponent: () => AgendamentoEditar},
+    { path: "mecanica-cliente/cadastrar", loadComponent: () => ClienteCadastrar},
+    { path: "mecanica-cliente", loadComponent: () => ClienteListar},
+    { path: "mecanica-cliente/editar/:id", loadComponent: () => ClienteEditar}
 ];
